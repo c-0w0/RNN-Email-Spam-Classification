@@ -1,4 +1,4 @@
-A training and a deployment of RNN for email spam classfication.
+A training and a deployment of RNN for email spam classification.
 
 
 ## Performance metrics
