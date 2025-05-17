@@ -27,27 +27,27 @@ A training and a deployment of a NLP model for spam detection using LSTM layer t
 1. Remove special characters (symbols, numbers) using `word.translate(str.maketrans('', '', string.punctuation))`
 2. `from sklearn.model_selection import train_test_split`
 
-   Casual train test split.
+   - Casual train test split.
 3. `from nltk.tokenize import word_tokenize`
 
-   Splits sentences into words.
+   - Splits sentences into words.
 4. `from tensorflow.keras.preprocessing.text import Tokenizer`
 
-   Builds vocabulary (word_index) & assigns integer IDs by frequency ranking on `fit_on_texts`.
-   > most frequent = 1, second most = 2, ...
+   - Builds vocabulary (word_index) & assigns integer IDs by frequency ranking on `fit_on_texts`.
+     > most frequent = 1, second most = 2, ...
    - Ability to filter rare words using `num_words`, which only consider the most frequent ones
    - Ability to handle unknown words in test data using `oov_token`
 
    Lastly, convert tokens to sequences(integer index) based on the vocabulary to represent the text data, which suits a neural network, using `texts_to_sequences(data)`.
 5. `from keras.preprocessing.sequence import pad_sequences`
 
-   Sequences from above may have varying length. Use `pad_sequences` to make them uniform.
+   - Sequences from above may have varying length. Use `pad_sequences` to make them uniform.
 
 ## During model training
 
-1. `from tensorflow.keras.layers import LsTM`
+1. `from tensorflow.keras.layers import LSTM`
    
-   Long Short-Term Memory is added as a layer, so the machine could connect the existing words to better understand the logic.
+   Long Short-Term Memory(LSTM) is added as a layer, so the machine could connect the existing words to better understand the logic.
    > It isn't good
    - The quote above is better understood when the model sees the `isn't`
    
