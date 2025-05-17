@@ -1,4 +1,4 @@
-A training and a deployment of RNN for email spam classification.
+A training and a deployment of a NLP model for spam detection using LSTM layer to learn patterns from tokenized text sequences.
 
 
 ## Performance metrics
@@ -22,7 +22,7 @@ A training and a deployment of RNN for email spam classification.
 
 # Techniques
 
-## Before model training
+## Text preprocessing in NLP
 
 1. Remove special characters (symbols, numbers) using `word.translate(str.maketrans('', '', string.punctuation))`
 2. `from sklearn.model_selection import train_test_split`
