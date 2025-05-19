@@ -1,8 +1,6 @@
 A training and a deployment of a NLP model for spam detection using LSTM layer to learn patterns from tokenized text sequences.
 
-
 ## Performance metrics
-
 > Precision: 0.9937
 > 
 > Recall: 0.9967
@@ -20,8 +18,30 @@ A training and a deployment of a NLP model for spam detection using LSTM layer t
 > val_loss: 0.0967
 
 
-# Techniques
+# Dataset
+Dataset Source: [Spam Email Classification Dataset](https://www.kaggle.com/datasets/purusinghvi/email-spam-classification-dataset)
+| Label    | Text             |
+| -------- | ---------------- |
+| 0 (Ham)  | Email content... |
+| 1 (Spam) | ...              |
+| ...      | ...              |
+| ...      | ...              |
+| ...      | ...              |
 
+# Model Architecture
+```python
+model = Sequential([
+    Input(shape=(max_len,)),  # Explicit input shape
+    Embedding(input_dim=max_words, output_dim=128),
+    Bidirectional(LSTM(128, return_sequences=True)),
+    Dropout(0.5),
+    LSTM(64),
+    Dropout(0.3),
+    Dense(1, activation='sigmoid')
+])
+```
+
+# Techniques
 ## Text preprocessing in NLP
 
 1. Remove special characters (symbols, numbers) using `word.translate(str.maketrans('', '', string.punctuation))`
