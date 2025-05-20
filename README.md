@@ -1,3 +1,4 @@
+# RNN Email Spam Classification
 A training and a deployment of a NLP model for spam detection using LSTM layer to learn patterns from tokenized text sequences.
 
 ## Performance metrics
@@ -18,7 +19,7 @@ A training and a deployment of a NLP model for spam detection using LSTM layer t
 > val_loss: 0.0967
 
 
-# Dataset
+## Dataset
 Dataset Source: [Spam Email Classification Dataset](https://www.kaggle.com/datasets/purusinghvi/email-spam-classification-dataset)
 | Label    | Text             |
 | -------- | ---------------- |
@@ -28,7 +29,7 @@ Dataset Source: [Spam Email Classification Dataset](https://www.kaggle.com/datas
 | ...      | ...              |
 | ...      | ...              |
 
-# Model Architecture
+## Model Architecture
 ```python
 model = Sequential([
     Input(shape=(max_len,)),  # Explicit input shape
@@ -41,9 +42,8 @@ model = Sequential([
 ])
 ```
 
-# Techniques
-## Text preprocessing in NLP
-
+## Techniques
+### Text preprocessing in NLP
 1. Remove special characters (symbols, numbers) using `word.translate(str.maketrans('', '', string.punctuation))`
 2. `from sklearn.model_selection import train_test_split`
 
@@ -63,7 +63,7 @@ model = Sequential([
 
    - Sequences from above may have varying length. Use `pad_sequences` to make them uniform.
 
-## During model training
+### During model training
 
 1. `from tensorflow.keras.layers import LSTM`
    
@@ -78,15 +78,13 @@ model = Sequential([
    - Reverts to the weights from the epoch with the best performance. Otherwise, the model would keep the possibly overfitted weights from the last epoch.
 
 
-# Techniques NOT implemented
-
+## Techniques NOT implemented
 The techniques below could possibly improve the performance if implemented.
 1. Lemmatization
 2. Stopwords removal
 
 
-# Usage
-
+## Usage
 1. Create a python virtual environment to house the packages requied.
    ```
    python -m venv <EnvName>
@@ -100,7 +98,6 @@ The techniques below could possibly improve the performance if implemented.
    ```
    
 ## Deployment(Optional)
-
 3. To deploy the project in docker:
    First, we get into the `docker` folder by executing command lines:
    ```
